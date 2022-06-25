@@ -32,13 +32,13 @@ public class UserRetrieve {
 	@RequestMapping(method = RequestMethod.GET, path = "/users/")
 	public ResponseEntity<Iterable<User>> getUsers() {
 		
-		return new ResponseEntity<Iterable<User>>(userService.getAllUsers(), HttpStatus.OK);
+		return new ResponseEntity<>(userService.getAllUsers(), HttpStatus.OK);
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, path = "/users/{id}")
 	public ResponseEntity<User> getUserById(@PathVariable("id") @NotNull Long id) {
 		
-		return new ResponseEntity<User>(userService.getById(id), HttpStatus.OK);
+		return new ResponseEntity<>(userService.getById(id), HttpStatus.OK);
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, path = "/users/{id}/interest/total")
@@ -49,7 +49,7 @@ public class UserRetrieve {
 			interestAmount += entry.getInterestRate();
 		}
 		
-		return new ResponseEntity<Integer>(interestAmount, HttpStatus.OK);
+		return new ResponseEntity<>(interestAmount, HttpStatus.OK);
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, path = "/users/{id}/interest/categorised")
@@ -60,6 +60,6 @@ public class UserRetrieve {
 			interestCategories.add(userCategoryService.convertToCategorisedUserCategory(entry));
 		}
 		
-		return new ResponseEntity<List<CategorisedUserCategory>>(interestCategories, HttpStatus.OK);
+		return new ResponseEntity<>(interestCategories, HttpStatus.OK);
 	}
 }

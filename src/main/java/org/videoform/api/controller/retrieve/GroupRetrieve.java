@@ -20,6 +20,6 @@ public class GroupRetrieve {
 	@RequestMapping(method = RequestMethod.GET, path = "/groups/")
 	public ResponseEntity<Iterable<Group>> getGroups() {
 		
-		return new ResponseEntity<Iterable<Group>>(groupService.getAllGroups(), HttpStatus.OK);
+		return new ResponseEntity<>(groupService.getAllGroups(), HttpStatus.OK);
 	}
 }

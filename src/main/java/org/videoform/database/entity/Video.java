@@ -2,11 +2,10 @@ package org.videoform.database.entity;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
+@Entity
+@Table(name = "video")
 public class Video implements Serializable {
 
 	private static final long serialVersionUID = -2106445072775367194L;

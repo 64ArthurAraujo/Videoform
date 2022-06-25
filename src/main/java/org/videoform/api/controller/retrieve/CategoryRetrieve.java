@@ -17,6 +17,6 @@ public class CategoryRetrieve {
 	@RequestMapping(method = RequestMethod.GET, path = "/categories/")
 	public ResponseEntity<Iterable<Category>> getCategories() {
 		
-		return new ResponseEntity<Iterable<Category>>(categoryService.getAllCategories(), HttpStatus.OK);
+		return new ResponseEntity<>(categoryService.getAllCategories(), HttpStatus.OK);
 	}
 }
