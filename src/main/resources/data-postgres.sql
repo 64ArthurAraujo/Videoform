@@ -5,6 +5,9 @@ INSERT INTO grupo (name) VALUES ('Tecnologia');
 INSERT INTO categoria (name, id_grupo) VALUES ('Programação', 1);
 INSERT INTO categoria (name, id_grupo) VALUES ('Design Patterns', 1);
 
+INSERT INTO video (
+    title, description, owner_id, likes, dislikes, vizualizations, category_id
+) VALUES ('video 1', 'first video', 1, 10, 25, 10, 1);
 
 
 
