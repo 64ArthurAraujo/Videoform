@@ -1,4 +1,4 @@
-package org.videoform.database.entity.util;
+package org.videoform.database.entity.intermediary;
 
 public class CategorisedUserCategory {
 	private Long id;
