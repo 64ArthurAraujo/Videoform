@@ -1,5 +1,7 @@
 package org.videoform.database.entity;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import java.io.Serializable;
 
 import javax.persistence.*;

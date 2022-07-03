@@ -10,7 +10,7 @@ import org.videoform.api.request.*;
 import org.videoform.api.response.*;
 import org.videoform.api.service.interf.*;
 import org.videoform.database.entity.*;
-import org.videoform.database.entity.util.ConvertedUserCategory;
+import org.videoform.database.entity.intermediary.ConvertedUserCategory;
 
 @RestController
 @RequestMapping(path = REQUEST_PATH_INSERT)

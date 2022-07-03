@@ -18,7 +18,7 @@ import org.videoform.api.service.interf.IUserCategoryService;
 import org.videoform.api.service.interf.IUserService;
 import org.videoform.database.entity.User;
 import org.videoform.database.entity.UserCategory;
-import org.videoform.database.entity.util.CategorisedUserCategory;
+import org.videoform.database.entity.intermediary.CategorisedUserCategory;
 
 @RestController
 @RequestMapping(path = REQUEST_PATH_RETRIEVE)

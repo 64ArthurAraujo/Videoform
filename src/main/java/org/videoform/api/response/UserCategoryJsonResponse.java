@@ -1,6 +1,6 @@
 package org.videoform.api.response;
 
-import org.videoform.database.entity.util.ConvertedUserCategory;
+import org.videoform.database.entity.intermediary.ConvertedUserCategory;
 
 public class UserCategoryJsonResponse {
 	private Long id;
