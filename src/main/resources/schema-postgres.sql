@@ -40,6 +40,7 @@ CREATE TABLE usuario_categoria (
 /* SPECIFIC TABLES FOR VIDEOS */
 CREATE TABLE video (
   id bigint GENERATED ALWAYS AS IDENTITY,
+  video_token varchar(12) UNIQUE,
   title varchar(180),
   description varchar(1024),
   owner_id bigint,

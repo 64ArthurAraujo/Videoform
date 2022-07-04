@@ -1,9 +1,6 @@
 package org.videoform.database.entity;
 
-import org.springframework.web.multipart.MultipartFile;
-
 import java.io.Serializable;
-
 import javax.persistence.*;
 
 @Entity
@@ -16,6 +13,9 @@ public class Video implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Long id;
+
+	@Column(name = "video_token")
+	private String videoToken;
 
 	@Column(name = "title")
 	private String title;
@@ -100,5 +100,13 @@ public class Video implements Serializable {
 
 	public void setCategoryId(Long categoryId) {
 		this.categoryId = categoryId;
+	}
+
+	public String getVideoToken() {
+		return videoToken;
+	}
+
+	public void setVideoToken(String videoToken) {
+		this.videoToken = videoToken;
 	}
 }
