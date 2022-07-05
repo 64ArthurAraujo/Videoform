@@ -24,7 +24,7 @@ public class Video implements Serializable {
 	private String description;
 	
 	@Column(name = "owner_id")
-	private String ownerId;
+	private Long ownerId;
 	
 	@Column(name = "likes")
 	private Long likes;
@@ -62,11 +62,11 @@ public class Video implements Serializable {
 		this.description = description;
 	}
 
-	public String getOwnerId() {
+	public Long getOwnerId() {
 		return ownerId;
 	}
 
-	public void setOwnerId(String ownerId) {
+	public void setOwnerId(Long ownerId) {
 		this.ownerId = ownerId;
 	}
 
