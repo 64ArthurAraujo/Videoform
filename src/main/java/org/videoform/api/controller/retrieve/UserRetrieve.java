@@ -6,14 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.constraints.NotNull;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.videoform.api.request.LoginDTO;
 import org.videoform.api.service.interf.IUserCategoryService;
 import org.videoform.api.service.interf.IUserService;
 import org.videoform.database.entity.User;
@@ -22,14 +19,28 @@ import org.videoform.database.entity.intermediary.CategorisedUserCategory;
 
 @RestController
 @RequestMapping(path = REQUEST_PATH_RETRIEVE)
+@CrossOrigin(origins = "http://localhost:3000") // svelte app
 public class UserRetrieve {
 	@Autowired
 	private IUserService userService;
 	
 	@Autowired
 	private IUserCategoryService userCategoryService;
+
+	@RequestMapping(method = RequestMethod.POST, path = "/users/login")
+	public ResponseEntity<String> loginUser(@RequestBody LoginDTO loginInfo) {
+		// todo: change that to a built in method in the service.
+		for (User user : userService.getAllUsers()) {
+			if (user.getUsername().equals(loginInfo.username) && user.getPassword().equals(loginInfo.password)) {
+
+				return new ResponseEntity<>(user.getAuthToken(), HttpStatus.OK);
+			}
+		}
+
+		return new ResponseEntity<>("Cannot find matching credentials.", HttpStatus.UNAUTHORIZED);
+	}
 	
-	@RequestMapping(method = RequestMethod.GET, path = "/users/")
+	@RequestMapping(method = RequestMethod.GET, path = "/users")
 	public ResponseEntity<Iterable<User>> getUsers() {
 		
 		return new ResponseEntity<>(userService.getAllUsers(), HttpStatus.OK);
