@@ -14,6 +14,7 @@ import org.videoform.database.entity.intermediary.ConvertedUserCategory;
 
 @RestController
 @RequestMapping(path = REQUEST_PATH_INSERT)
+@CrossOrigin(origins = "http://localhost:3000") // svelte app
 public class UserInsert {
 	@Autowired
 	private IUserService userService;
@@ -22,10 +23,10 @@ public class UserInsert {
 	private IUserCategoryService userCategoryService;
 	
 	@RequestMapping(method = RequestMethod.POST, path = "/users/", consumes = "application/json")
-	public ResponseEntity<UserJsonResponse> insertUser(@RequestBody UserJsonRequest jsonRequest) {
+	public ResponseEntity<String> insertUser(@RequestBody UserJsonRequest jsonRequest) {
 		User newCreatedUser = userService.insert(jsonRequest.convertJsonToEntity());
 		
-		return new ResponseEntity<>(new UserJsonResponse(newCreatedUser), HttpStatus.CREATED);
+		return new ResponseEntity<>(new UserJsonResponse(newCreatedUser).getAuthToken(), HttpStatus.CREATED);
 	}
 	
 	@RequestMapping(method = RequestMethod.POST, path = "/users/categories/", consumes = "application/json") 
