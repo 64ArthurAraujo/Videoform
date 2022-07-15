@@ -9,8 +9,6 @@ public class UserJsonResponse {
 	
 	public UserJsonResponse(User user) {
 		this.username = user.getUsername();
-		this.password = user.getPassword();
-		this.authToken = user.getAuthToken();
 	}
 
 	public String getUsername() {

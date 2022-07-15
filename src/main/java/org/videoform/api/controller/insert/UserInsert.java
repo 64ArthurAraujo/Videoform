@@ -14,7 +14,7 @@ import org.videoform.database.entity.intermediary.ConvertedUserCategory;
 
 @RestController
 @RequestMapping(path = REQUEST_PATH_INSERT)
-@CrossOrigin(origins = "http://localhost:3000") // svelte app
+@CrossOrigin(origins = "http://localhost:8080") // svelte app
 public class UserInsert {
 	@Autowired
 	private IUserService userService;
